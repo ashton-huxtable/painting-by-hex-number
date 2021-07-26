@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { fetchArtData } from '../../Utils/apiCalls'
 
+
 interface Art {
     longTitle: string,
     webImage: string, 
@@ -13,7 +14,11 @@ interface Art {
 class AllPaintings extends Component<Art> {
 
 componentDidMount() {
-    fetchArtData(981313)
+    fetchArtData(981313) {
+        .then( artData => {
+            
+        })
+    }
 }
 
     render() {

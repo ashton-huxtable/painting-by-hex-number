@@ -2,10 +2,20 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 
-interface HomeProps { }
+interface ArtProps {
+}
 
-const Home: React.FC<HomeProps> = props => {
-    const [art, setArt ] = useState({})
+export interface Art {
+    id: string
+    title: string
+    webImage: string
+    artist: string
+    longTitle: string
+    
+}
+
+const Home: React.FC<ArtProps> = props => {
+    const [art, setArt ] = useState<Art[]>([])
 
   const getAllArt = async (hexId: number) => {
       let response = await fetch(`https://www.rijksmuseum.nl/api/en/collection?key=SkU9wRGq&f.normalized32Colors.hex=%20%23${hexId}`)
@@ -14,6 +24,18 @@ const Home: React.FC<HomeProps> = props => {
       console.log(art.artObjects)
   }
 
+  const eachArt = art.map(piece => {
+      return(
+      <div>
+          key={piece.id}
+          id={piece.id}
+          title={piece.title}
+          artist={piece.artist}
+          longTitle={piece.longTitle}    
+      </div>
+      )
+  })
+
     useEffect(() => {
         getAllArt(981313)
     }, [])
@@ -21,6 +43,7 @@ const Home: React.FC<HomeProps> = props => {
     return (
         <main>
             <h1>HELLO WORLD</h1>
+            <p>{eachArt}</p>
         </main>
     )
 }

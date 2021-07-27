@@ -8,9 +8,11 @@ interface ArtProps {
 export interface Art {
     id: string
     title: string
-    webImage: string
     artist: string
     longTitle: string
+    webImage: {
+        url: string
+    }
     
 }
 
@@ -29,8 +31,9 @@ const Home: React.FC<ArtProps> = props => {
       <div>
           key={piece.id}
           id={piece.id}
-          title={piece.title}
-          artist={piece.artist}
+          <h2>title={piece.title}</h2>
+          <h3>artist={piece.artist}</h3>
+          <img src={piece.webImage.url} alt={piece.longTitle}></img>
           longTitle={piece.longTitle}    
       </div>
       )

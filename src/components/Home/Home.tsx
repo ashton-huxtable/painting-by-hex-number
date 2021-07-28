@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { useState, useEffect } from 'react'
+import ColorPalette from '../ColorPalette/ColorPalette'
 
 interface ArtProps {
 }
@@ -43,6 +44,7 @@ const Home: React.FC<ArtProps> = props => {
     return (
         <main>
             <h1>HELLO WORLD</h1>
+            <ColorPalette />
             <p>{eachArt}</p>
         </main>
     )

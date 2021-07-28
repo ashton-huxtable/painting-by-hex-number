@@ -1,5 +1,6 @@
 
 import React from 'react'
+import './Home.css'
 import { useState, useEffect } from 'react'
 
 interface ArtProps {}
@@ -7,8 +8,8 @@ interface ArtProps {}
 export interface Art {
     id: string
     title: string
-    artist: string
     longTitle: string
+    principalOrFirstMaker: string
     webImage: {
         url: string
     }
@@ -25,18 +26,28 @@ const Home: React.FC<ArtProps> = props => {
       console.log(art.artObjects)
   }
 
-  const eachArt = art.map(piece => {
-       <div>
-        key={piece.id} 
-        id={piece.id} 
-      </div>
 
-      return (
-          
-      <div className='match-container'>
-          <h2>{piece.title}</h2>
-          <h3>{piece.artist}</h3>
-          <img src={piece.webImage.url} alt={piece.longTitle}></img>
+  const eachArt = art.map(piece => {
+
+    const getYear = () => {
+        let split = piece.longTitle.split(',')
+        let year = split[2]
+        return year
+    } 
+
+
+       <div>
+            key={piece.id} 
+            id={piece.id} 
+       </div>
+
+      return (  
+          <div className='match-container'>
+            <div className='each-piece'>
+                <img src={piece.webImage.url} alt={piece.longTitle}></img>
+                <h2>{piece.title}</h2>
+                <p>{piece.principalOrFirstMaker}, {getYear()}</p>
+            </div>
           {/* longTitle={piece.longTitle}     */}
       </div>
       )

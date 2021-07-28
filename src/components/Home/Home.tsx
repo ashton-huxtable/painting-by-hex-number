@@ -3,7 +3,7 @@ import React from 'react'
 import './Home.css'
 import { useState, useEffect } from 'react'
 
-interface ArtProps {}
+export interface ArtProps {}
 
 export interface Art {
     id: string

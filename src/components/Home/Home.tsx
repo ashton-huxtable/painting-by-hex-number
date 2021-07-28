@@ -2,6 +2,7 @@
 import React from 'react'
 import './Home.css'
 import { useState, useEffect } from 'react'
+import ColorPalette from '../ColorPalette/ColorPalette'
 
 export interface ArtProps {}
 
@@ -19,7 +20,7 @@ export interface Art {
 const Home: React.FC<ArtProps> = props => {
     const [art, setArt ] = useState<Art[]>([])
 
-  const getAllArt = async (hexId: number) => {
+  const getAllArt = async (hexId: string) => {
       let response = await fetch(`https://www.rijksmuseum.nl/api/en/collection?key=SkU9wRGq&f.normalized32Colors.hex=%20%23${hexId}`)
       let art = await response.json()
       setArt(art.artObjects)
@@ -54,12 +55,13 @@ const Home: React.FC<ArtProps> = props => {
   })
 
     useEffect(() => {
-        getAllArt(981313)
+        getAllArt('981313')
     }, [])
 
     return (
         <main>
-            {eachArt}
+            <ColorPalette />
+            {/* {eachArt} */}
         </main>
     )
 }

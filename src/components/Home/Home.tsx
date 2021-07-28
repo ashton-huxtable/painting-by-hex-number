@@ -8,7 +8,6 @@ interface ArtProps {}
 export interface Art {
     id: string
     title: string
-    artist: string
     longTitle: string
     principalOrFirstMaker: string
     webImage: {

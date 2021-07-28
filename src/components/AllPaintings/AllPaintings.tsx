@@ -8,13 +8,14 @@ export interface ArtProps {}
 export interface Art {
     id: string
     title: string
-    artist: string
     longTitle: string
+    principalOrFirstMaker: string
     webImage: {
         url: string
     }
     
 }
+
 
 const AllPaintings: React.FC<ArtProps> = props => {
     const [art, setArt ] = useState<Art[]>([])
@@ -27,6 +28,13 @@ const AllPaintings: React.FC<ArtProps> = props => {
   }
 
   const eachArt = art.map(piece => {
+
+    const getYear = () => {
+        let split = piece.longTitle.split(',')
+        let year = split[2]
+        return year
+    } 
+
     return (
         <PaintingContainer 
                 key={piece.id} 
@@ -34,7 +42,9 @@ const AllPaintings: React.FC<ArtProps> = props => {
                 longTitle={piece.longTitle}
                 title={piece.title}
                 webImage={piece.webImage}
-                artist={piece.artist}
+                getYear={getYear()}
+                principalOrFirstMaker={piece.principalOrFirstMaker}
+
         />
     ) 
   })

@@ -9,7 +9,9 @@ import AllPaintings from '../AllPaintings/AllPaintings';
 function App() {
   return (
     <div>
-      <h1 className='title'>Paint by (hex) Numbers</h1>
+      <nav>
+      <h1><span className='one cursive'>Paint </span><span className='two cursive'> By ^</span><span className='three cursive'>(hex) </span><span className='four cursive'>Numbers</span></h1>
+      </nav>
       {/* <Home /> */}
       {/* <PaintingContainer /> */}
       <AllPaintings/>

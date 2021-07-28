@@ -2,15 +2,16 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 
-interface ArtProps {
-}
+interface ArtProps {}
 
 export interface Art {
     id: string
     title: string
-    webImage: string
     artist: string
     longTitle: string
+    webImage: {
+        url: string
+    }
     
 }
 
@@ -25,13 +26,18 @@ const Home: React.FC<ArtProps> = props => {
   }
 
   const eachArt = art.map(piece => {
-      return(
-      <div>
-          key={piece.id}
-          id={piece.id}
-          title={piece.title}
-          artist={piece.artist}
-          longTitle={piece.longTitle}    
+       <div>
+        key={piece.id} 
+        id={piece.id} 
+      </div>
+
+      return (
+          
+      <div className='match-container'>
+          <h2>{piece.title}</h2>
+          <h3>{piece.artist}</h3>
+          <img src={piece.webImage.url} alt={piece.longTitle}></img>
+          {/* longTitle={piece.longTitle}     */}
       </div>
       )
   })
@@ -42,16 +48,9 @@ const Home: React.FC<ArtProps> = props => {
 
     return (
         <main>
-            <h1>HELLO WORLD</h1>
-            <p>{eachArt}</p>
+            {eachArt}
         </main>
     )
 }
 
 export default Home
-
-// export const getAllArt = (hexId: number) => {
-//     return fetch(`https://www.rijksmuseum.nl/api/en/collection?key=SkU9wRGq&f.normalized32Colors.hex=%20%23${hexId}`)
-//     .then(response => response.json())
-//     .catch(error => error)
-// }

@@ -7,6 +7,7 @@ import Home from '../Home/Home'
 function App() {
   return (
     <div>
+      <h1 className='title'>Paint by (hex) Numbers</h1>
       <Home />
     </div>
   );

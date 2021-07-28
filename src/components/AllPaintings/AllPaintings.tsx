@@ -20,7 +20,7 @@ export interface Art {
 const AllPaintings: React.FC<ArtProps> = props => {
     const [art, setArt ] = useState<Art[]>([])
 
-  const getAllArt = async (hexId: number) => {
+  const getAllArt = async (hexId: string) => {
       let response = await fetch(`https://www.rijksmuseum.nl/api/en/collection?key=SkU9wRGq&f.normalized32Colors.hex=%20%23${hexId}`)
       let art = await response.json()
       setArt(art.artObjects)
@@ -50,7 +50,7 @@ const AllPaintings: React.FC<ArtProps> = props => {
   })
 
   useEffect(() => {
-    getAllArt(981313)
+    getAllArt('367614')
 }, [])
 
       return (

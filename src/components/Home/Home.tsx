@@ -1,17 +1,19 @@
 
 import React from 'react'
+import './Home.css'
 import { useState, useEffect } from 'react'
 import ColorPalette from '../ColorPalette/ColorPalette'
 
-interface ArtProps {
-}
+export interface ArtProps {}
 
 export interface Art {
     id: string
     title: string
-    webImage: string
-    artist: string
     longTitle: string
+    principalOrFirstMaker: string
+    webImage: {
+        url: string
+    }
     
 }
 
@@ -25,14 +27,29 @@ const Home: React.FC<ArtProps> = props => {
       console.log(art.artObjects)
   }
 
+
   const eachArt = art.map(piece => {
-      return(
-      <div>
-          key={piece.id}
-          id={piece.id}
-          title={piece.title}
-          artist={piece.artist}
-          longTitle={piece.longTitle}    
+
+    const getYear = () => {
+        let split = piece.longTitle.split(',')
+        let year = split[2]
+        return year
+    } 
+
+
+       <div>
+            key={piece.id} 
+            id={piece.id} 
+       </div>
+
+      return (  
+          <div className='match-container'>
+            <div className='each-piece'>
+                <img src={piece.webImage.url} alt={piece.longTitle}></img>
+                <h2>{piece.title}</h2>
+                <p>{piece.principalOrFirstMaker}, {getYear()}</p>
+            </div>
+          {/* longTitle={piece.longTitle}     */}
       </div>
       )
   })
@@ -43,17 +60,9 @@ const Home: React.FC<ArtProps> = props => {
 
     return (
         <main>
-            <h1>HELLO WORLD</h1>
-            <ColorPalette />
-            <p>{eachArt}</p>
+            {eachArt}
         </main>
     )
 }
 
 export default Home
-
-// export const getAllArt = (hexId: number) => {
-//     return fetch(`https://www.rijksmuseum.nl/api/en/collection?key=SkU9wRGq&f.normalized32Colors.hex=%20%23${hexId}`)
-//     .then(response => response.json())
-//     .catch(error => error)
-// }

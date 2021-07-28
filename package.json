@@ -44,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-color": "^3.0.5",
     "cypress": "^8.0.0"
   }
 }

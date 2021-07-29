@@ -1,34 +1,30 @@
 import React from 'react';
 import { SwatchesPicker } from 'react-color';
-import { useState } from 'react';
-
-
+import { useState, useEffect } from 'react';
 export interface ColorResult {
   hex: string;
 }
-
 export interface ColorProps {
   handleColorClick: (hexId: string) => void
 }
-
 const ColorPalette: React.FC<ColorProps> = (props) => {
-
-  const [ chosenColor, setChosenColor] = useState('')
- 
-
+  const [ chosenColor, setChosenColor] = useState('');
   const handleChange = (color: ColorResult, event: React.ChangeEvent<HTMLInputElement>) => {
-      setChosenColor(color.hex)
-      console.log(chosenColor)
-      if (!chosenColor.length) {
-        return null
-      } else {
-        const colorHex: string = (chosenColor.split('#')[1]).toUpperCase();
-        props.handleColorClick(colorHex)
-      }
-
-
-      
+    setChosenColor(color.hex)
   }
+  
+  const passColorToHome = (chosenColor: string) => {
+    if (!chosenColor) {
+      return null 
+    } else {
+      let colorHex: string = (chosenColor.split('#')[1]).toUpperCase();
+      props.handleColorClick(colorHex)
+    }
+  }
+
+  useEffect(() => {
+    passColorToHome(chosenColor)
+  }, [chosenColor])
 
   const myColors: string[][] = [ ['#981313', '#B35A1F', '#E09714', '#FFEB00'], 
   ['#DF4C93', '#F49B7A', '#DDA5AA', '#DAAFDA'], 
@@ -36,16 +32,10 @@ const ColorPalette: React.FC<ColorProps> = (props) => {
   ['#4019B1', '#4279DB', '#8268DC', '#850085'],
   ['#2F4F4F', '#367614', '#62AD77', '#E0CC91'] 
 ]
-
- 
-
   return(
     <div>
       <SwatchesPicker colors={myColors} onChange={handleChange} />
     </div>
   )
 }
-
-
-
 export default ColorPalette

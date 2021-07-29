@@ -9,12 +9,21 @@ import AllPaintings from '../AllPaintings/AllPaintings'
 const Home: React.FC = () => {
     
     const [art, setArt ] = useState([])
+    const [ isLoading, setIsLoading ] = useState(false)
+    const [error, checkError ] = useState('')
 
   const getAllArt = async (hexId: string) => {
-      let response = await fetch(`https://www.rijksmuseum.nl/api/en/collection?key=SkU9wRGq&f.normalized32Colors.hex=%20%23${hexId}`)
-      let currentArt = await response.json()
-    setArt(currentArt.artObjects)
-      console.log(art)
+      setIsLoading(true)
+      try {
+        let response = await fetch(`https://www.rijksmuseum.nl/api/en/collection?key=SkU9wRGq&f.normalized32Colors.hex=%20%23${hexId}`)
+        let currentArt = await response.json()
+        setArt(currentArt.artObjects)
+      } catch (error) {
+          checkError('Uh oh something is real wrong here')
+      } finally {
+        setIsLoading(false)
+        console.log(art)
+      }
   }
 
     const handleColorClick = (hexId: string) => {
@@ -24,7 +33,9 @@ const Home: React.FC = () => {
     return (
         <main>
             <ColorPalette handleColorClick={handleColorClick}/>
-            <AllPaintings art={art}/>
+            {!art && isLoading && !error && <h2>Loading matching paintings 🎨</h2>}
+            {!art && error && <h2>Uh oh something has gone wrong</h2>}
+            {art && !isLoading && !error && <AllPaintings art={art}/>}
         </main>
     )
 }

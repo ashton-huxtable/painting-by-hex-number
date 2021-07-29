@@ -3,31 +3,25 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import PaintingContainer from '../PaintingContainer/PaintingContainer';
 
-export interface ArtProps {}
+export interface ArtProps {
+    art: Art[],
+}
 
 export interface Art {
-    id: string
-    title: string
-    longTitle: string
-    principalOrFirstMaker: string
-    webImage: {
-        url: string
-    }
-    
+       id: string
+        title: string
+        longTitle: string
+        principalOrFirstMaker: string
+        webImage: {
+            url: string
+        }
+
 }
 
 
-const AllPaintings: React.FC<ArtProps> = props => {
-    const [art, setArt ] = useState<Art[]>([])
+const AllPaintings: React.FC<ArtProps> = (props) => {
 
-  const getAllArt = async (hexId: string) => {
-      let response = await fetch(`https://www.rijksmuseum.nl/api/en/collection?key=SkU9wRGq&f.normalized32Colors.hex=%20%23${hexId}`)
-      let art = await response.json()
-      setArt(art.artObjects)
-      console.log(art.artObjects)
-  }
-
-  const eachArt = art.map(piece => {
+  const eachArt = props.art.map((piece: Art) => {
 
     const getYear = () => {
         let split = piece.longTitle.split(',')
@@ -48,10 +42,6 @@ const AllPaintings: React.FC<ArtProps> = props => {
         />
     ) 
   })
-
-  useEffect(() => {
-    getAllArt('367614')
-}, [])
 
       return (
           

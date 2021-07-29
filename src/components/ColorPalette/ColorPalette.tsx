@@ -7,14 +7,27 @@ export interface ColorResult {
   hex: string;
 }
 
-const ColorPalette: React.FC = () => {
+export interface ColorProps {
+  handleColorClick: (hexId: string) => void
+}
+
+const ColorPalette: React.FC<ColorProps> = (props) => {
 
   const [ chosenColor, setChosenColor] = useState('')
-  // const [ customColors, setCustomColors ] = useState()
+ 
 
   const handleChange = (color: ColorResult, event: React.ChangeEvent<HTMLInputElement>) => {
       setChosenColor(color.hex)
       console.log(chosenColor)
+      if (!chosenColor.length) {
+        return null
+      } else {
+        const colorHex: string = (chosenColor.split('#')[1]).toUpperCase();
+        props.handleColorClick(colorHex)
+      }
+
+
+      
   }
 
   const myColors: string[][] = [ ['#981313', '#B35A1F', '#E09714', '#FFEB00'], 
@@ -24,8 +37,7 @@ const ColorPalette: React.FC = () => {
   ['#2F4F4F', '#367614', '#62AD77', '#E0CC91'] 
 ]
 
-  const colorHex = chosenColor.split('#') 
-  console.log(colorHex[1])
+ 
 
   return(
     <div>

@@ -1,7 +1,7 @@
 
 import React from 'react'
 import './Home.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import ColorPalette from '../ColorPalette/ColorPalette'
 
 export interface ArtProps {}
@@ -18,6 +18,7 @@ export interface Art {
 }
 
 const Home: React.FC<ArtProps> = props => {
+    
     const [art, setArt ] = useState<Art[]>([])
 
   const getAllArt = async (hexId: string) => {
@@ -26,6 +27,12 @@ const Home: React.FC<ArtProps> = props => {
       setArt(art.artObjects)
       console.log(art.artObjects)
   }
+
+    const handleColorClick = (hexId: string) => {
+        console.log(hexId, 'Home')
+        getAllArt(hexId)
+     }
+
 
 
   const eachArt = art.map(piece => {
@@ -54,13 +61,14 @@ const Home: React.FC<ArtProps> = props => {
       )
   })
 
-    useEffect(() => {
-        getAllArt('981313')
-    }, [])
+
+
+        // useEffect with  empty array runs like componentDidMount 
+
 
     return (
         <main>
-            <ColorPalette />
+            <ColorPalette handleColorClick={handleColorClick}/>
             {/* {eachArt} */}
         </main>
     )

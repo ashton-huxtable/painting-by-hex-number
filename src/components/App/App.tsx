@@ -14,7 +14,7 @@ function App() {
       </nav>
       <Home />
       {/* <PaintingContainer /> */}
-      <AllPaintings/>
+      {/* <AllPaintings/> */}
     </div>
   );
 }

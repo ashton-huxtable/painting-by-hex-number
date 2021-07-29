@@ -19,7 +19,14 @@ const ColorPalette: React.FC<ColorProps> = (props) => {
   const handleChange = (color: ColorResult, event: React.ChangeEvent<HTMLInputElement>) => {
       setChosenColor(color.hex)
       console.log(chosenColor)
-      props.handleColorClick(colorHex)
+      if (!chosenColor.length) {
+        return null
+      } else {
+        const colorHex: string = (chosenColor.split('#')[1]).toUpperCase();
+        props.handleColorClick(colorHex)
+      }
+
+
       
   }
 
@@ -30,8 +37,7 @@ const ColorPalette: React.FC<ColorProps> = (props) => {
   ['#2F4F4F', '#367614', '#62AD77', '#E0CC91'] 
 ]
 
-  const colorHex = chosenColor.split('#')[1]
-  // console.log(colorHex[1])
+ 
 
   return(
     <div>

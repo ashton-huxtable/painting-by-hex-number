@@ -15,14 +15,14 @@ const Home: React.FC = () => {
   const getAllArt = async (hexId: string) => {
       setIsLoading(true)
       try {
-      let response = await fetch(`https://www.rijksmuseum.nl/api/en/collection?key=SkU9wRGq&f.normalized32Colors.hex=%20%23${hexId}`)
-      let currentArt = await response.json()
-      setArt(currentArt.artObjects)
+        let response = await fetch(`https://www.rijksmuseum.nl/api/en/collection?key=SkU9wRGq&f.normalized32Colors.hex=%20%23${hexId}`)
+        let currentArt = await response.json()
+        setArt(currentArt.artObjects)
       } catch (error) {
           checkError('Uh oh something is real wrong here')
       } finally {
-      setIsLoading(false)
-      console.log(art)
+        setIsLoading(false)
+        console.log(art)
       }
   }
 

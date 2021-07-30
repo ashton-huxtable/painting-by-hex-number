@@ -30,7 +30,9 @@ const PaintingContainer: React.FC<ArtsyProps> = ({id, title, principalOrFirstMak
                 <div className='middle'>
                     <div className='text'>
                         <h3>{title}</h3>
-                        <p>{principalOrFirstMaker}, {getYear()}</p></div>
+                        <p>{principalOrFirstMaker}, {getYear()}</p>
+                        <button className='fav-button'>Add to Favorites</button>
+                    </div>
                 </div>
         </div>
       </div>

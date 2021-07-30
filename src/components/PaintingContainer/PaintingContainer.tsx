@@ -26,12 +26,19 @@ const PaintingContainer: React.FC<ArtsyProps> = ({id, title, principalOrFirstMak
           
       <div className='match-container'>
         <div className='each-piece'>
-            <img src={webImage.url} alt={longTitle}></img>
-            <h2>{title}</h2>
-            <p>{principalOrFirstMaker}, {getYear()}</p>
+            <img className='image' src={webImage.url} alt={longTitle}></img>
+                <div className='middle'>
+                    <div className='text'>
+                        <h3>{title}</h3>
+                        <p>{principalOrFirstMaker}, {getYear()}</p></div>
+                </div>
         </div>
       </div>
       )
   }
 
 export default PaintingContainer;
+
+<div className='middle'>
+<div className='text'></div>
+</div>

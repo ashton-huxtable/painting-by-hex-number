@@ -19,9 +19,11 @@ const Home: React.FC = () => {
         let currentArt = await response.json()
         setArt(currentArt.artObjects)
       } catch (error) {
+          console.log('ERROR', error)
           checkError('Uh oh something is real wrong here')
       } finally {
         setIsLoading(false)
+        console.log(isLoading)
         console.log(art)
       }
   }

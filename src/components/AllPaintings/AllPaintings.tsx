@@ -46,6 +46,9 @@ const AllPaintings: React.FC<ArtProps> = (props) => {
           
       <div className='match-container'>
           {eachArt}
+          <div className='middle'>
+              <div className='text'></div>
+          </div>
       </div>
       )
   }

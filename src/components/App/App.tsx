@@ -1,9 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
-import Home from '../Home/Home'
-import PaintingContainer from '../PaintingContainer/PaintingContainer'; 
-import AllPaintings from '../AllPaintings/AllPaintings';  
+import Home from '../Home/Home' 
 
 
 function App() {

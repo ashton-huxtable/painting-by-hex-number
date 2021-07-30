@@ -13,15 +13,12 @@ export interface ColorProps {
 const  colorSwatchContainer: CSS.Properties = {
     display: 'flex',
     flexDirection: 'column',
-    // height: '500em',
-    // width: '400',
     alignItems: 'center',
+    marginBottom: '3em'
 
 }
 
-const colorSwatchStyle: CSS.Properties = {
-  height: '500em'
-}
+
 
 const ColorPalette: React.FC<ColorProps> = (props) => {
   const [ chosenColor, setChosenColor] = useState('');
@@ -48,9 +45,11 @@ const ColorPalette: React.FC<ColorProps> = (props) => {
   ['#4019B1', '#4279DB', '#8268DC', '#850085'],
   ['#2F4F4F', '#367614', '#62AD77', '#E0CC91'] 
 ]
+
+
   return(
     <div style= {colorSwatchContainer}>
-      <SwatchesPicker style= {colorSwatchStyle} colors={myColors} onChange={handleChange} />
+      <SwatchesPicker colors={myColors} onChange={handleChange} />
     </div>
   )
 }

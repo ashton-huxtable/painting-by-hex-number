@@ -33,11 +33,15 @@ const Home: React.FC = () => {
      }
 
     return (
-        <main>
+        <main className='main-container'>
+          <aside className='palette-container'>
             <ColorPalette handleColorClick={handleColorClick}/>
+          </aside>
+          <section>
             {!art && isLoading && !error && <h2>Loading matching paintings 🎨</h2>}
             {!art && error && <h2>Uh oh something has gone wrong</h2>}
             {art && !isLoading && !error && <AllPaintings art={art}/>}
+          </section>
         </main>
     )
 }

@@ -1,12 +1,28 @@
 import React from 'react';
 import { SwatchesPicker } from 'react-color';
 import { useState, useEffect } from 'react';
+import CSS from 'csstype'
+
 export interface ColorResult {
   hex: string;
 }
 export interface ColorProps {
   handleColorClick: (hexId: string) => void
 }
+
+const  colorSwatchContainer: CSS.Properties = {
+    display: 'flex',
+    flexDirection: 'column',
+    // height: '500em',
+    // width: '400',
+    alignItems: 'center',
+
+}
+
+const colorSwatchStyle: CSS.Properties = {
+  height: '500em'
+}
+
 const ColorPalette: React.FC<ColorProps> = (props) => {
   const [ chosenColor, setChosenColor] = useState('');
   const handleChange = (color: ColorResult, event: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,8 +49,8 @@ const ColorPalette: React.FC<ColorProps> = (props) => {
   ['#2F4F4F', '#367614', '#62AD77', '#E0CC91'] 
 ]
   return(
-    <div>
-      <SwatchesPicker colors={myColors} onChange={handleChange} />
+    <div style= {colorSwatchContainer}>
+      <SwatchesPicker style= {colorSwatchStyle} colors={myColors} onChange={handleChange} />
     </div>
   )
 }

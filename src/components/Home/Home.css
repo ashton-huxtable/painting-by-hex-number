@@ -1,8 +1,8 @@
 .match-container {
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: repeat(4, 1fr); 
-    grid-gap: 0.5rem;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 1rem;
 }
 
 .each-piece {
@@ -11,6 +11,7 @@
     align-items: center;
     justify-content: space-between;
     text-align: center;
+    position: relative;
 }
 
 .each-piece:hover img {
@@ -23,8 +24,8 @@
 
 img {
     object-fit: cover;
-    width: 400px;
-    height: 225px;
+    width: 450px;
+    height: 253.13px;
     opacity: 1;
     display: block;
     transition: .5s ease;
@@ -43,8 +44,10 @@ img {
   }
 
   .text {
-    background-color: #04AA6D;
+    background-color: #D7E3E9;
     color: white;
     font-size: 16px;
-    padding: 16px 32px;
+    /* padding: 16px 32px; */
+    object-fit: cover;
+
   }

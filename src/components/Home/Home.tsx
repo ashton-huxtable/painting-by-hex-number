@@ -5,7 +5,6 @@ import { useState } from 'react'
 import ColorPalette from '../ColorPalette/ColorPalette'
 import AllPaintings from '../AllPaintings/AllPaintings'
 import Favorites from '../Favorites/Favorites';
-import PaintingContainer from '../PaintingContainer/PaintingContainer'
 
 export interface Favorites {
     id: string
@@ -19,10 +18,10 @@ export interface Favorites {
 
 const Home: React.FC = () => {
     
-    const [art, setArt ] = useState([])
+    const [art, setArt] = useState([])
     const [favorites, setFavorites] = useState<Favorites[]>([])
-    const [ isLoading, setIsLoading ] = useState(false)
-    const [error, checkError ] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
+    const [error, checkError] = useState('')
 
   const getAllArt = async (hexId: string) => {
       setIsLoading(true)
@@ -48,6 +47,7 @@ const Home: React.FC = () => {
         let newFavorite: any = art.find(piece => piece)
         setFavorites(existingFavorites => [...existingFavorites, newFavorite])
     }
+    console.log(favorites)
 
     return (
         <main className='main-container'>
@@ -60,6 +60,7 @@ const Home: React.FC = () => {
             {art && !isLoading && !error && <AllPaintings art={art} addToFavorites={addToFavorites}/>}
           </section>
           <section>
+              <Favorites favorites={favorites}/>
           </section>
         </main>
     )

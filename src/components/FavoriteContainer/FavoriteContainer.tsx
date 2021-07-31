@@ -8,11 +8,11 @@ export interface EachFavoriteProps {
   webImage: {
       url: string
   }
-  year: string
+  getYear: any
 }
 
 const FavoriteContainer: React.FC<EachFavoriteProps> = 
-  ({id, title, longTitle, principalOrFirstMaker, webImage, year}) => {
+  ({id, title, longTitle, principalOrFirstMaker, webImage, getYear}) => {
   return (
    
     <article className='each-favorite'>
@@ -20,7 +20,7 @@ const FavoriteContainer: React.FC<EachFavoriteProps> =
             <div className='middle'>
                 <div className='text'>
                     <h3>{title}</h3>
-                    <p>{principalOrFirstMaker}, {year}</p>
+                    <p>{principalOrFirstMaker}, {getYear}</p>
                 </div>
             </div>
       </article>

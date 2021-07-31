@@ -44,11 +44,14 @@ const Home: React.FC = () => {
      }
 
     const addToFavorites = (artId: string) => {
-        let newFavorite: any = art.find(piece => piece)
-        if (!favorites.includes(newFavorite)) {
-            setFavorites(existingFavorites => [...existingFavorites, newFavorite])
-
+     
+        let newFavorite: any = art.find((piece: Favorites) => piece.id === artId) 
+        if (!favorites.includes(newFavorite)){
+            setFavorites(existingFavorites => [...existingFavorites, newFavorite])   
+        } else {
+            return null
         }
+
     }
     console.log(favorites)
 

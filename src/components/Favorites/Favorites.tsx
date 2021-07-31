@@ -18,7 +18,12 @@ export interface Favorite {
 const Favorites: React.FC<AllFavoritesProps>= (props) => {
 
   const eachFavorite = props.favorites.map((favorite: Favorite) => {
-    let year = favorite.longTitle.split(',')[2]
+   
+    const getYear = () => {
+      let split = favorite.longTitle.split(',')
+      let year = split[2]
+      return year
+  } 
      
     return(
       <FavoriteContainer 
@@ -27,7 +32,7 @@ const Favorites: React.FC<AllFavoritesProps>= (props) => {
         longTitle={favorite.longTitle}
         title={favorite.title}
         webImage={favorite.webImage}
-        year={year}
+        getYear={getYear()}
         principalOrFirstMaker={favorite.principalOrFirstMaker}
       />
     

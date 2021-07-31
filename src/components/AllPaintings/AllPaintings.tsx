@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Favorites from '../Favorites/Favorites';
 import PaintingContainer from '../PaintingContainer/PaintingContainer';
 
 export interface ArtProps {
@@ -17,8 +18,11 @@ export interface Art {
 
 }
 
+export interface FavoritesProps {
+    addToFavorites: (artId: string) => void
+  }
 
-const AllPaintings: React.FC<ArtProps> = (props) => {
+const AllPaintings: React.FC<ArtProps & FavoritesProps> = (props) => {
 
   const eachArt = props.art.map((piece: Art) => {
 
@@ -37,6 +41,7 @@ const AllPaintings: React.FC<ArtProps> = (props) => {
                 webImage={piece.webImage}
                 getYear={getYear()}
                 principalOrFirstMaker={piece.principalOrFirstMaker}
+                addToFavorites={props.addToFavorites}
 
         />
     ) 

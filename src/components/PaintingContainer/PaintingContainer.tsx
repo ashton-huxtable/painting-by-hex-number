@@ -15,8 +15,18 @@ export interface ArtsyProps {
     getYear: any
 }
 
-const PaintingContainer: React.FC<ArtsyProps> = ({id, title, principalOrFirstMaker, longTitle, webImage}) => {
+export interface FavoritesProps {
+    addToFavorites: (artId: string) => void
+  }
+
+const PaintingContainer: React.FC<ArtsyProps & FavoritesProps> = ({id, title, principalOrFirstMaker, longTitle, webImage, addToFavorites}) => {
    
+    const passToFavorites = (event: any) => {
+        let paintingId: any = (event.currentTarget)
+        console.log(paintingId.id)
+        addToFavorites(paintingId.id)
+    }
+
     const getYear = () => {
         let split = longTitle.split(',')
         let year = split[2]
@@ -31,7 +41,7 @@ const PaintingContainer: React.FC<ArtsyProps> = ({id, title, principalOrFirstMak
                     <div className='text'>
                         <h3>{title}</h3>
                         <p>{principalOrFirstMaker}, {getYear()}</p>
-                        <button className='fav-button'>Add to Favorites</button>
+                        <button id={id} className='fav-button' onClick={passToFavorites}>Add to Favorites</button>
                     </div>
                 </div>
         </div>

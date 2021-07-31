@@ -55,6 +55,7 @@ const Home: React.FC = () => {
     return (
         <main className='main-container'>
           <aside className='palette-container'>
+            <p className='select-color'>Select a color</p>
             <ColorPalette handleColorClick={handleColorClick}/>
           </aside>
           <section>

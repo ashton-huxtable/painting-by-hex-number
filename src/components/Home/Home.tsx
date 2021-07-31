@@ -4,11 +4,23 @@ import './Home.css'
 import { useState } from 'react'
 import ColorPalette from '../ColorPalette/ColorPalette'
 import AllPaintings from '../AllPaintings/AllPaintings'
+import Favorites from '../Favorites/Favorites';
+import PaintingContainer from '../PaintingContainer/PaintingContainer'
 
+export interface Favorites {
+    id: string
+     title: string
+     longTitle: string
+     principalOrFirstMaker: string
+     webImage: {
+         url: string
+     }
+}
 
 const Home: React.FC = () => {
     
     const [art, setArt ] = useState([])
+    const [favorites, setFavorites] = useState<Favorites[]>([])
     const [ isLoading, setIsLoading ] = useState(false)
     const [error, checkError ] = useState('')
 
@@ -32,6 +44,11 @@ const Home: React.FC = () => {
         getAllArt(hexId)
      }
 
+    const addToFavorites = (artId: string) => {
+        let newFavorite: any = art.find(piece => piece)
+        setFavorites(existingFavorites => [...existingFavorites, newFavorite])
+    }
+
     return (
         <main className='main-container'>
           <aside className='palette-container'>
@@ -40,7 +57,9 @@ const Home: React.FC = () => {
           <section>
             {!art && isLoading && !error && <h2>Loading matching paintings 🎨</h2>}
             {!art && error && <h2>Uh oh something has gone wrong</h2>}
-            {art && !isLoading && !error && <AllPaintings art={art}/>}
+            {art && !isLoading && !error && <AllPaintings art={art} addToFavorites={addToFavorites}/>}
+          </section>
+          <section>
           </section>
         </main>
     )

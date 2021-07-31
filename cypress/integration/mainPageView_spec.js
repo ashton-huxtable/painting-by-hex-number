@@ -43,7 +43,7 @@ describe ('Main Page View', () => {
     it("Should be able to click on a color swatch", () => {
         // cy.title("#B35A1F").click()
         cy.get('div')
-        .title("#B35A1F")
+        .title("#B35A1F").click()
     //   cy.get("div").contains("title")
     //   .contains('98313');
     //   cy.url().should("include", "http://localhost:3000");

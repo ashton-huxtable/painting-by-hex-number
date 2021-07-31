@@ -32,7 +32,7 @@ const Home: React.FC = () => {
         getAllArt(hexId)
      }
 
-    return (
+     return (
         <main className='main-container'>
           <aside className='palette-container'>
             <ColorPalette handleColorClick={handleColorClick}/>

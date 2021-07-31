@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=WindSong:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
 
 body {
   background-color: #fbfbf2;
@@ -9,32 +10,39 @@ body {
 nav {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #D7E3E9;
+  align-items: flex-start;
+  background-color: #cbe3ee;
+  height: 8em;
 }
 
-.cursive {
-  font-family: 'WindSong', cursive;
+.subheading {
+  display: flex;
+  color: white;
+  background-color: black;
+  height: 3em;
+  font-weight: bold;
+  margin-bottom: 3em;
+}
+
+.subtext {
+  margin-left: 2em;
+}
+
+.header-title {
+  font-family: 'Roboto', sans-serif;
   font-size: 40px;
-}
-
-.one {
-  color: rebeccapurple;
-}
-
-.two {
-  color: green;
+  font-style: italic;
+  color:  white;
+  margin-left: 1em;
 }
 
 .three {
-  color: red;
+  color: #7210b0;
+  padding-left: 8px;
   font-size: 16px;
   vertical-align: text-top
 }
 
-.four {
-  color: blue;
-}
 
 
   /* COLOR SCHEME 

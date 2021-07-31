@@ -7,9 +7,15 @@ import Home from '../Home/Home'
 function App() {
   return (
     <div>
-      <nav>
-      <h1><span className='one cursive'>Paint </span><span className='two cursive'> By ^</span><span className='three cursive'>(hex) </span><span className='four cursive'>Numbers</span></h1>
-      </nav>
+      <header>
+        <nav>
+        <h1 className='header-title'>Paint By<span className='three'>(hex)</span><span>Numbers</span></h1>
+        </nav>
+        <section className='subheading'>
+          <p className='subtext'>View collections of art from the Rijks Museum that match corresponding hex codes</p>
+        </section>
+      </header>
+      
       <Home />
       {/* <PaintingContainer /> */}
       {/* <AllPaintings/> */}

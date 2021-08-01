@@ -1,8 +1,7 @@
 
 import React from 'react'
-import { useState, useEffect } from 'react'
 import './PaintingContainer.css'
-// export interface ArtProps {}
+
 
 export interface ArtsyProps {
     id: string

@@ -19,8 +19,6 @@ const  colorSwatchContainer: CSS.Properties = {
 
 }
 
-
-
 const ColorPalette: React.FC<ColorProps> = (props) => {
   const [ chosenColor, setChosenColor] = useState('');
   const handleChange = (color: ColorResult, event: React.ChangeEvent<HTMLInputElement>) => {

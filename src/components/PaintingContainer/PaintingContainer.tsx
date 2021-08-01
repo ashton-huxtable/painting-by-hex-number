@@ -35,7 +35,7 @@ const PaintingContainer: React.FC<ArtsyProps & FavoritesProps> = ({id, title, pr
           
       <div className='match-container'>
         <div className='each-piece'>
-            <img className='image' src={webImage.url} alt={longTitle}></img>
+            <img className='image' id={id} src={webImage.url} alt={longTitle}></img>
                 <div className='middle'>
                     <div className='text'>
                         <h3>{title}</h3>

@@ -26,7 +26,20 @@ describe ('Main Page View', () => {
       cy.get('h1').contains('Paint By')
       cy.get('span').contains('(hex)')
       cy.get('span').contains('Numbers')
+    });
 
+    it("Should be able to click on the title to reload the page", () => {
+      cy.get('h1').contains('Paint By')
+      cy.get('span').contains('(hex)')
+      cy.get('span').contains('Numbers').click()
+    });
+
+    it("Should have a favorites view section", () => {
+      cy.get('a').contains('My Favs')
+    });
+
+    it("Should be able to click on favorites view section", () => {
+      cy.get('a').contains('My Favs').click()
     });
 
     it("Should have an aside", () => {
@@ -34,60 +47,36 @@ describe ('Main Page View', () => {
         cy.get('p').should('have.class', 'select-color')
       });
 
-    // it("Should have a color palette", () => {
-    //   cy.get("div").should("have.class", "swatches-picker");
-    //   cy.get('div').should('have.css', 'color', 'rgb(255, 255, 255)') 
-    // });
-
     it("Should have a color palette", () => {
-        cy.get("div").should("have.class", "each-color-swatch")
-        cy.get('span').contains('div')
-        // .title("#981313")
-        // cy.get('div').title("#981313")
-      //  .should('have.attr', 'title', '#981313' )
-        // .should('have.css', 'background', 'rgb(152, 19, 19)')
-        // cy.get('div').should('have.css', 'height', '24px')
-        // cy.get('svg').should('have.css', 'color', 'rgb(255, 255, 255)')
-        // cy.get('div').should('have.css', 'background', 'rgb(54, 118, 20)')
-        // .should('have.style', "fill: currentcolor; width: 24px; height: 24px;") 
-      });
+      cy.get("div").should("have.class", "swatches-picker");
+    });
+    
+    it("Should be able to click a color swatch", () => {
+      cy.get("div").should("have.class", "each-color-swatch")
+      cy.get('div[title*="#981313"]').click()
+    });
 
-    //   style="background: rgb(54, 118, 20); height: 24px; width: 40px; cursor: pointer; position: relative; outline: none; margin-bottom: 1px;"
+    it("Should load images after clicking on a swatch", () => {
+      cy.get('div[title*="#981313"]').click()
+      cy.get('img').should('have.attr', 'src', 'https://lh5.ggpht.com/JH0svNh0Pkov_W97MDHw8v2-qKS8AdixVJ-CiPL_xBECNdEyTBkicMvZBsqgW6GQ0TB9moKnfGUYacWQS32rqeoEjA4=s0')
+    });
 
-    //   cy.get(mainMenu).expect(element).to.have.style('height', '323px');
+    it("Should be able to get more information for each image", () => {
+      cy.get('div[title*="#981313"]').click()
+      cy.get('img').should('have.attr', 'src', 'https://lh5.ggpht.com/JH0svNh0Pkov_W97MDHw8v2-qKS8AdixVJ-CiPL_xBECNdEyTBkicMvZBsqgW6GQ0TB9moKnfGUYacWQS32rqeoEjA4=s0')
+      cy.get('h3').contains('The Massacre of the Innocents')
+    });
 
-    // cy.get(mainMenu).should('have.css', 'height', '55px')
+    it("Should be able to click on the Add to Favorites Button", () => {
+      cy.get('div[title*="#981313"]').click()
+      cy.get('img').should('have.attr', 'src', 'https://lh5.ggpht.com/JH0svNh0Pkov_W97MDHw8v2-qKS8AdixVJ-CiPL_xBECNdEyTBkicMvZBsqgW6GQ0TB9moKnfGUYacWQS32rqeoEjA4=s0')
+      cy.get('h3').contains('The Massacre of the Innocents')
+      cy.get('button').contains('Add to Favorites').click()
+    });
 
-    // it("Should be able to click on a color swatch", () => {
-    //     cy.get("div").should("have.class", "swatches-picker");
-    //     cy.get('div').title("#981313").click()
-    //   });
 
 
-    //   cy.get('body').should('have.css', 'background-color', 'rgb(0, 0, 0)')
-
-  
-    // it("Should be able to click on a color swatch", () => {
-    //     // cy.title("#B35A1F").click()
-    //     cy.get('div')
-    //     .title("#B35A1F")
-    // });
-
-    // it("Should be able to click on a color swatch", () => {
-    //     // cy.title("#B35A1F").click()
-    //     cy.get('div')
-    //     .title("#B35A1F").click()
-    // //   cy.get("div").contains("title")
-    // //   .contains('98313');
-    // //   cy.url().should("include", "http://localhost:3000");
-    // });
-
-    // <h1 className='header-title'>Paint By<span className='three'>(hex)</span><span>Numbers</span></h1>
-
-  
-    // it("Should show the user a random movie image", () => {
-    //   cy.get("img").should("have.class", "random-movie-backdrop");
-    // });
+    // The Massacre of the Innocents
   
     // it("Should have a more info button on random movie image", () => {
     //   cy.get(".random-info-button").contains("More Info").click();

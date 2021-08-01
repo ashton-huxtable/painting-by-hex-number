@@ -1,30 +1,31 @@
 import React from 'react';
-
 import './App.css';
 import Home from '../Home/Home' 
+import { NavLink, Link } from 'react-router-dom'
+
 
 
 function App() {
   return (
-    <div>
+    <main>
       <header>
         <nav>
-        <h1 className='header-title'>Paint By<span className='three'>(hex)</span><span>Numbers</span></h1>
+        <Link to='/'>
+          <h1 className='header-title'>Paint By<span className='three'>(hex)</span><span>Numbers</span></h1>
+        </Link>
+        <NavLink to='/favorites'>My Favs</NavLink>
         </nav>
         <section className='subheading'>
           <p className='subtext'>View collections of art from the Rijks Museum that match corresponding hex codes</p>
         </section>
       </header>
-      
-      <Home />
-      {/* <PaintingContainer /> */}
-      {/* <AllPaintings/> */}
-    </div>
+      <Home/>
+    </main>
   );
 }
 
 
-// 'https://www.rijksmuseum.nl/api/en/collection?key=SkU9wRGq&f.normalized32Colors.hex=%20%23')
+
 
 
 export default App;

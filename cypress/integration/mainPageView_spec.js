@@ -40,8 +40,12 @@ describe ('Main Page View', () => {
     // });
 
     it("Should have a color palette", () => {
-        cy.get("div").should("have.class", "swatches-picker");
-        cy.get('div').should('have.attr', 'title')
+        cy.get("div").should("have.class", "each-color-swatch")
+        cy.get('span').contains('div')
+        // .title("#981313")
+        // cy.get('div').title("#981313")
+      //  .should('have.attr', 'title', '#981313' )
+        // .should('have.css', 'background', 'rgb(152, 19, 19)')
         // cy.get('div').should('have.css', 'height', '24px')
         // cy.get('svg').should('have.css', 'color', 'rgb(255, 255, 255)')
         // cy.get('div').should('have.css', 'background', 'rgb(54, 118, 20)')

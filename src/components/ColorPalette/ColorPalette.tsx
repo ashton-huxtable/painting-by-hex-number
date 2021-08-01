@@ -49,9 +49,10 @@ const ColorPalette: React.FC<ColorProps> = (props) => {
 
 const myHeight: number = 130
 
+
   return(
     <div style= {colorSwatchContainer}>
-      <SwatchesPicker height={myHeight} colors={myColors} onChange={handleChange} />
+      <SwatchesPicker className="each-color-swatch" height={myHeight} colors={myColors} onChange={handleChange} />
     </div>
   )
 }

@@ -5,6 +5,7 @@ import { useState } from 'react'
 import ColorPalette from '../ColorPalette/ColorPalette'
 import AllPaintings from '../AllPaintings/AllPaintings'
 import Favorites from '../Favorites/Favorites';
+import { NavLink, Route, Switch } from 'react-router-dom'
 
 export interface Favorites {
     id: string
@@ -56,21 +57,27 @@ const Home: React.FC = () => {
     console.log(favorites)
 
     return (
+
         <main className='main-container'>
           <aside className='palette-container'>
             <p className='select-color'>Select a color</p>
             <ColorPalette handleColorClick={handleColorClick}/>
           </aside>
-          <section>
-            {!art && isLoading && !error && <h2>Loading matching paintings 🎨</h2>}
-            {!art && error && <h2>Uh oh something has gone wrong</h2>}
-            {art && !isLoading && !error && <AllPaintings art={art} addToFavorites={addToFavorites}/>}
-          </section>
-          <section>
+          <Route exact path='/'>
+            <section>
+              {!art && isLoading && !error && <h2>Loading matching paintings 🎨</h2>}
+              {!art && error && <h2>Uh oh something has gone wrong</h2>}
+              {art && !isLoading && !error && <AllPaintings art={art} addToFavorites={addToFavorites}/>}
+            </section>
+          </Route>
+          <Route path='/favorites' render={() => <Favorites favorites={favorites}/>} />
+         
+          {/* <section>
               <Favorites favorites={favorites}/>
-          </section>
+          </section> */}
         </main>
     )
 }
+
 
 export default Home

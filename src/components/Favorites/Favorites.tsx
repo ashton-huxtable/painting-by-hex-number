@@ -40,10 +40,10 @@ const Favorites: React.FC<AllFavoritesProps>= (props) => {
   })
 
   return(
-    <section className='favorites-container'>
-      {eachFavorite}
-    </section>
-      
+      <section className='favorites-container'>
+        {eachFavorite}
+      </section>
+        
   )
 
 }

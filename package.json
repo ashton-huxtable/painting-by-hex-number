@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@types/react-color": "^3.0.5",
+    "@types/react-router-dom": "^5.1.8",
     "cypress": "^8.0.0"
   }
 }

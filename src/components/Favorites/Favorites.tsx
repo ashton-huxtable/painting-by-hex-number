@@ -1,5 +1,5 @@
-import React from 'react';
 import FavoriteContainer from '../FavoriteContainer/FavoriteContainer'
+import React from 'react';
 
 export interface AllFavoritesProps{
   favorites: Favorite[]

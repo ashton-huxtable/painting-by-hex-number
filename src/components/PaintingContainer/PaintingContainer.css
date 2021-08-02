@@ -2,7 +2,8 @@
   margin-bottom: 0.3em;
 }
 
-.fav-button:hover {
+.fav-button:hover, 
+.fav-button:focus {
   background-color: #415D43;
   color: white;
 }

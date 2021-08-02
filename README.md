@@ -15,7 +15,7 @@
 
 When an art lover visits an art museum, they walk around the museum, and naturally find themselves gravitating towards art that fits their style or overall preferences which can include a preference towards certain color palettes. Painting by (hex) Numbers is an app that facilitates this! Users are be able to view only art that matches their preferred color palettes by allowing them to specify what color swatches they want to see, and they are then led to see art that matches those colors and favorite them into thier collection. This project was created in roughly one week to demonstrate our ability to learn a new technology to make a fully functioning application, in this case, Typescript and React with Hooks. The rubric for this project is found [here](https://frontend.turing.edu/projects/module-3/stretch.html). 
 
-Check it out [here on heroku]() or see instructions for viewing locally below. 
+Check it out [here on heroku](https://paint-by-hex-number.herokuapp.com/) or see instructions for viewing locally below. 
 
 
 # Instructions for Viewing Locally 

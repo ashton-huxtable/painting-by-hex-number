@@ -21,7 +21,7 @@ const Favorites: React.FC<AllFavoritesProps>= (props) => {
    
     const getYear = () => {
       let split = favorite.longTitle.split(',')
-      let year = split[2]
+      let year = split[split.length - 1]
       return year
   } 
      

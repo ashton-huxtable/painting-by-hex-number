@@ -60,12 +60,12 @@ const Home: React.FC = () => {
     return (
 
         <main className='main-container'>
-          <aside className='palette-container'>
-            <p className='select-color'>Select a color</p>
-            <ColorPalette handleColorClick={handleColorClick}/>
-          </aside>
           <Switch>
             <Route exact path='/'>
+            <aside className='palette-container'>
+                <p className='select-color'>Select a color</p>
+                <ColorPalette handleColorClick={handleColorClick}/>
+            </aside>
               <section>
                 {!art && isLoading && !error && <h2>Loading matching paintings 🎨</h2>}
                 {!art && error && <h2>Uh oh something has gone wrong</h2>}

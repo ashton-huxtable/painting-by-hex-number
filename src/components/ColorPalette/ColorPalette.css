@@ -1,0 +1,44 @@
+.swatches-picker > div > div {
+  height: 160px;
+}
+
+.swatches-picker > div > div > div {
+  width: 200px!important;
+  height: 160px!important;
+  margin: 0!important;
+  padding: 0!important;
+}
+
+.swatches-picker > div > div > div > div  {
+  width: 200px!important;
+  height: 160px!important;
+  margin: 0!important;
+  padding: 0!important;
+} 
+
+.swatches-picker > div > div > div > div > div{
+  margin: 0!important;
+  padding: 0!important;
+}
+
+.swatches-picker > div > div > div > div > div > span > div{
+  width: 40px!important;
+  height: 40px!important;
+  margin: 0!important;
+  padding: 0!important;
+  overflow: none;
+}
+
+.select-color {
+  align-self: center;
+  margin-bottom: 1em;
+  font-size: 1.5em;
+}
+
+.swatches-picker{
+  display: flex;
+  justify-content: center;
+}
+
+
+

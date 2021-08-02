@@ -111,4 +111,8 @@ describe("Favorites Page View", () => {
     cy.get("img").should("have.length", 1);
   });
 
+  it("Should have no art in favorites if user hasn't added new art ", () => {
+    cy.get("a").contains("My Collection").click();
+    cy.get("section").should("be.empty");
+  });
 });

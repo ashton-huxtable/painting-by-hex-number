@@ -68,14 +68,14 @@ const Home: React.FC = () => {
             <ColorPalette handleColorClick={handleColorClick}/>
         </aside>
           <section>
-            {!art.length && isLoading && !error && <h2>Loading matching paintings 🎨</h2>}
-            {!art && error && <h2>Uh oh something has gone wrong</h2>}
+            {!art.length && <h2 className='loading'>To get started, please select a color from the palette!</h2>}
+            {!art.length && isLoading && !error && <h2 className='loading'>Loading matching paintings 🎨</h2>}
+            {!art.length && error && <h2 className="loading">Something has gone wrong</h2>}
             {art && !isLoading && !error && <AllPaintings art={art} addToFavorites={addToFavorites}/>}
           </section>
         </Route>
         <Route path='/favorites' render={() => <Favorites favorites={favorites}/>} />
         <Route  render={() => <Error />}/>
-
       </Switch>
     </main>
     )

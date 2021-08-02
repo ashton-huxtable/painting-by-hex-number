@@ -39,6 +39,12 @@ describe("Main Page View", () => {
     cy.get("span").contains("Numbers");
   });
 
+  it("Should have instructions for the user", () => {
+    cy.get("h2").contains(
+      "To get started, please select a color from the palette!"
+    );
+  });
+
   it("Should have a favorites view section", () => {
     cy.get("a").contains("My Collection");
   });
@@ -64,9 +70,8 @@ describe("Main Page View", () => {
   it("Should have a loading message before images load", () => {
     cy.get("div").should("have.class", "each-color-swatch");
     cy.get('div[title*="#981313"]').click();
-    cy.get('h2').contains('Loading matching paintings 🎨')
+    cy.get("h2").contains("Loading matching paintings 🎨");
   });
-
 
   it("Should load images after clicking on a swatch", () => {
     cy.get('div[title*="#981313"]').click();
@@ -116,16 +121,18 @@ describe("Main Page View", () => {
   });
 
   it("Should notify the user if the url they typed does not exist", () => {
-      cy.visit("http://localhost:3000/gimmeart");
-      cy.get('h2').contains('Whoops! Looks like this path doesn\'t exist. Click the button to go back to the main page 🎨')
+    cy.visit("http://localhost:3000/gimmeart");
+    cy.get("h2").contains(
+      "Whoops! Looks like this path doesn't exist. Click the button to go back to the main page 🎨"
+    );
   });
 
   it("Should allow the user to click on the Go Back button and return home if they reach an incorrect URL", () => {
     cy.visit("http://localhost:3000/gimmeart");
-    cy.get('h2').contains('Whoops! Looks like this path doesn\'t exist. Click the button to go back to the main page 🎨')
-    cy.get('button').contains('Go Back').click()
-    cy.location('pathname').should('eq', '/')
-});
-
-
+    cy.get("h2").contains(
+      "Whoops! Looks like this path doesn't exist. Click the button to go back to the main page 🎨"
+    );
+    cy.get("button").contains("Go Back").click();
+    cy.location("pathname").should("eq", "/");
+  });
 });

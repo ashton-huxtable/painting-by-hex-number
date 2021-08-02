@@ -28,7 +28,7 @@ const PaintingContainer: React.FC<ArtsyProps & FavoritesProps> = ({id, title, pr
 
     const getYear = () => {
         let split = longTitle.split(',')
-        let year = split[2]
+        let year = split[split.length - 1]
         return year
     } 
       return (
@@ -40,7 +40,7 @@ const PaintingContainer: React.FC<ArtsyProps & FavoritesProps> = ({id, title, pr
                     <div className='text'>
                         <h3>{title}</h3>
                         <p>{principalOrFirstMaker}, {getYear()}</p>
-                        <button id={id} className='fav-button' onClick={passToFavorites}>Add to Favorites</button>
+                        <button id={id} className='fav-button' onClick={passToFavorites}>Add to Collection</button>
                     </div>
                 </div>
         </div>

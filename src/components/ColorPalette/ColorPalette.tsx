@@ -21,6 +21,7 @@ const  colorSwatchContainer: CSS.Properties = {
 const ColorPalette: React.FC<ColorProps> = (props) => {
   const [ chosenColor, setChosenColor] = useState('');
   const handleChange = (color: ColorResult, event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log("event", event.target)
     setChosenColor(color.hex)
   }
   
@@ -46,9 +47,10 @@ const ColorPalette: React.FC<ColorProps> = (props) => {
 
 const myHeight: number = 230
 
+
   return(
     <div style= {colorSwatchContainer}>
-      <SwatchesPicker height={myHeight} colors={myColors} onChange={handleChange} />
+      <SwatchesPicker className="each-color-swatch" height={myHeight} colors={myColors} onChange={handleChange} />
     </div>
   )
 }

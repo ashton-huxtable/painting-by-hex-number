@@ -73,7 +73,8 @@ const Home: React.FC = () => {
               </section>
             </Route>
             <Route path='/favorites' render={() => <Favorites favorites={favorites}/>} />
-            <Route render={() => <Error />} />
+            <Route  render={() => <Error />}/>
+    
           </Switch>
         </main>
     )

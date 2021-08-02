@@ -2,6 +2,7 @@ import React from 'react';
 import { SwatchesPicker } from 'react-color';
 import { useState, useEffect } from 'react';
 import CSS from 'csstype'
+import './ColorPalette.css'
 
 export interface ColorResult {
   hex: string;
@@ -14,8 +15,7 @@ const  colorSwatchContainer: CSS.Properties = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    marginBottom: '3em'
-
+    marginBottom: '3em',
 }
 
 const ColorPalette: React.FC<ColorProps> = (props) => {
@@ -45,7 +45,7 @@ const ColorPalette: React.FC<ColorProps> = (props) => {
   ['#2F4F4F', '#367614', '#62AD77', '#E0CC91'] 
 ]
 
-const myHeight: number = 130
+const myHeight: number = 230
 
 
   return(

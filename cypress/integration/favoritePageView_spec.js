@@ -34,11 +34,11 @@ describe("Favorites Page View", () => {
   });
 
   it("Should have a favorites view section", () => {
-    cy.get("a").contains("My Favs");
+    cy.get("a").contains("My Collection");
   });
 
   it("Should be able to click on favorites view section", () => {
-    cy.get("a").contains("My Favs").click();
+    cy.get("a").contains("My Collection").click();
   });
 
   it("Should be able to click a color swatch", () => {
@@ -66,7 +66,7 @@ describe("Favorites Page View", () => {
     cy.get("h3").contains("The Massacre of the Innocents");
   });
 
-  it("Should be able to click on the Add to Favorites Button", () => {
+  it("Should be able to click on the Add to Collection Button", () => {
     cy.get('div[title*="#981313"]').click();
     cy.get("img").should(
       "have.attr",
@@ -74,7 +74,7 @@ describe("Favorites Page View", () => {
       "https://lh5.ggpht.com/JH0svNh0Pkov_W97MDHw8v2-qKS8AdixVJ-CiPL_xBECNdEyTBkicMvZBsqgW6GQ0TB9moKnfGUYacWQS32rqeoEjA4=s0"
     );
     cy.get("h3").contains("The Massacre of the Innocents");
-    cy.get("button").contains("Add to Favorites").click();
+    cy.get("button").contains("Add to Collection").click();
   });
 
   it("Should be able to view favorites after adding image to favorites", () => {
@@ -85,8 +85,8 @@ describe("Favorites Page View", () => {
       "https://lh5.ggpht.com/JH0svNh0Pkov_W97MDHw8v2-qKS8AdixVJ-CiPL_xBECNdEyTBkicMvZBsqgW6GQ0TB9moKnfGUYacWQS32rqeoEjA4=s0"
     );
     cy.get("h3").contains("The Massacre of the Innocents");
-    cy.get("button").contains("Add to Favorites").click();
-    cy.get("a").contains("My Favs").click();
+    cy.get("button").contains("Add to Collection").click();
+    cy.get("a").contains("My Collection").click();
     cy.get("section")
       .should("have.class", "favorites-container")
       .get("img")
@@ -95,5 +95,24 @@ describe("Favorites Page View", () => {
         "src",
         "https://lh5.ggpht.com/JH0svNh0Pkov_W97MDHw8v2-qKS8AdixVJ-CiPL_xBECNdEyTBkicMvZBsqgW6GQ0TB9moKnfGUYacWQS32rqeoEjA4=s0"
       );
+  });
+
+  it("Should be able to add to favorites only once even after clicking add button twice", () => {
+    cy.get('div[title*="#981313"]').click();
+    cy.get("#en-SK-A-128").should(
+      "have.attr",
+      "src",
+      "https://lh5.ggpht.com/JH0svNh0Pkov_W97MDHw8v2-qKS8AdixVJ-CiPL_xBECNdEyTBkicMvZBsqgW6GQ0TB9moKnfGUYacWQS32rqeoEjA4=s0"
+    );
+    cy.get("h3").contains("The Massacre of the Innocents");
+    cy.get("button").contains("Add to Collection").click();
+    cy.get("button").contains("Add to Collection").click();
+    cy.get("a").contains("My Collection").click();
+    cy.get("img").should("have.length", 1);
+  });
+
+  it("Should have no art in favorites if user hasn't added new art ", () => {
+    cy.get("a").contains("My Collection").click();
+    cy.get("section").should("be.empty");
   });
 });

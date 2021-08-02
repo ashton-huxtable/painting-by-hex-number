@@ -1,6 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=WindSong:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300&display=swap');
+
+
+html{
+  height: 100vh;
+}
+
+main{
+  height: 100vh;
+}
 
 body {
   background-color: #fbfbf2;
@@ -10,37 +19,67 @@ body {
 nav {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  background-color: #cbe3ee;
+  align-items: center;
+  background-color: #685155;
   height: 8em;
 }
 
 .subheading {
   display: flex;
+  justify-content: center;
   color: white;
   background-color: black;
   height: 3em;
   font-weight: bold;
   margin-bottom: 3em;
 }
-
+  
 .subtext {
   margin-left: 2em;
+  text-align: center;
 }
 
 .header-title {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Saira Condensed', sans-serif;
   font-size: 40px;
-  font-style: italic;
   color:  white;
-  margin-left: 1em;
+  margin: 0.5em 0 0.3em 0;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.home-link {
+  text-decoration: none;
+}
+
+.fav-link{
+  align-self: flex-end;
+  color: #e5e6e4;
+  font-size: 1.3em;
+  margin-right: 1em;
 }
 
 .three {
-  color: #7210b0;
+  color: #fbfbf2;
   padding-left: 8px;
-  font-size: 16px;
+  font-size: 0.4em;
   vertical-align: text-top
+}
+
+@media screen and (max-width: 500px) {
+  .subheading {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: black;
+    height: 5em;
+    font-weight: bold;
+    margin-bottom: 3em;
+  }
+  
+  .subtext{
+    margin-left: 0;
+  }
 }
 
 

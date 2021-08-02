@@ -10,10 +10,10 @@ function App() {
     <main>
       <header>
         <nav>
-        <Link to='/'>
-          <h1 className='header-title'>Paint By<span className='three'>(hex)</span><span>Numbers</span></h1>
+        <Link className='home-link' to='/'>
+          <h1 className='header-title'>Paint by<span className='three'>(hex)</span><span>Numbers</span></h1>
         </Link>
-        <NavLink to='/favorites'>My Favs</NavLink>
+        <NavLink className='fav-link' to='/favorites'>My Collection</NavLink>
         </nav>
         <section className='subheading'>
           <p className='subtext'>View collections of art from the Rijks Museum that match corresponding hex codes</p>

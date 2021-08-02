@@ -31,12 +31,6 @@ describe ('Main Page View', () => {
       cy.get('span').contains('Numbers')
     });
 
-    it("Should be able to click on the title to reload the page", () => {
-      cy.get('h1').contains('Paint By')
-      cy.get('span').contains('(hex)')
-      cy.get('span').contains('Numbers').click()
-    });
-
     it("Should have a favorites view section", () => {
       cy.get('a').contains('My Favs')
     });
@@ -76,6 +70,18 @@ describe ('Main Page View', () => {
       cy.get('img').should('have.attr', 'src', 'https://lh5.ggpht.com/JH0svNh0Pkov_W97MDHw8v2-qKS8AdixVJ-CiPL_xBECNdEyTBkicMvZBsqgW6GQ0TB9moKnfGUYacWQS32rqeoEjA4=s0')
       cy.get('h3').contains('The Massacre of the Innocents')
       cy.get('button').contains('Add to Favorites').click()
+    });
+
+    it("Should be able to click on the title to return to the main page", () => {
+      cy.get('div[title*="#981313"]').click()
+      cy.get('img').should('have.attr', 'src', 'https://lh5.ggpht.com/JH0svNh0Pkov_W97MDHw8v2-qKS8AdixVJ-CiPL_xBECNdEyTBkicMvZBsqgW6GQ0TB9moKnfGUYacWQS32rqeoEjA4=s0')
+      cy.get('h3').contains('The Massacre of the Innocents')
+      cy.get('button').contains('Add to Favorites').click()
+      cy.get('a').contains('My Favs').click()
+      cy.get('h1').contains('Paint By')
+      cy.get('span').contains('(hex)')
+      cy.get('span').contains('Numbers').click()
+      cy.get('img').should('have.length', 10)
     });
 
   });

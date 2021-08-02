@@ -88,6 +88,29 @@ img {
     object-fit: cover;
 }
 
+  .error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.go-back {
+        background-color: #847577 ;
+        border: none;
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        box-shadow: 5px 5px 5px #cfd2cd;
+        text-decoration: none;
+}
+
+.go-back:hover {
+    background-color: #415D43;
+    color: white;
+  }
+
+  
 
 
 @media screen and (max-width: 1100px) {

@@ -6,6 +6,7 @@ import ColorPalette from '../ColorPalette/ColorPalette'
 import AllPaintings from '../AllPaintings/AllPaintings'
 import Favorites from '../Favorites/Favorites';
 import { NavLink, Route, Switch } from 'react-router-dom'
+import Error from '../Error/Error'
 
 export interface Favorites {
     id: string
@@ -59,19 +60,22 @@ const Home: React.FC = () => {
     return (
 
         <main className='main-container'>
-          <Route exact path='/'>
+          <Switch>
+            <Route exact path='/'>
             <aside className='palette-container'>
                 <p className='select-color'>Select a color</p>
                 <ColorPalette handleColorClick={handleColorClick}/>
             </aside>
-            <section>
-              {!art.length && <h2 className='loading'>To get started, please select a color from the palette!</h2>}
-              {!art.length && isLoading && !error && <h2 className='loading'>Loading matching paintings</h2>}
-              {!art.length && error && <h2 className='loading'>Something went wrong</h2>}
-              {art && !isLoading && !error && <AllPaintings art={art} addToFavorites={addToFavorites}/>}
-            </section>
-          </Route>
-          <Route path='/favorites' render={() => <Favorites favorites={favorites}/>} />
+              <section>
+                {!art && isLoading && !error && <h2>Loading matching paintings 🎨</h2>}
+                {!art && error && <h2>Uh oh something has gone wrong</h2>}
+                {art && !isLoading && !error && <AllPaintings art={art} addToFavorites={addToFavorites}/>}
+              </section>
+            </Route>
+            <Route path='/favorites' render={() => <Favorites favorites={favorites}/>} />
+            <Route  render={() => <Error />}/>
+    
+          </Switch>
         </main>
     )
 }

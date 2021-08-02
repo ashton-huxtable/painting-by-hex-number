@@ -15,8 +15,7 @@ const  colorSwatchContainer: CSS.Properties = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    marginBottom: '3em'
-
+    marginBottom: '3em',
 }
 
 const ColorPalette: React.FC<ColorProps> = (props) => {

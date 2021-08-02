@@ -1,46 +1,107 @@
-# Getting Started with Create React App
+# Painting by (hex) Number 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Table of Contents
+- [Overview](#overview)
+- [Achitechture and Learning Goals](#architechture-and-learning-goals)
+- [Instructions for Viewing](#instructions-for-viewing)
+- [Walkthrough](#walkthrough)
+- [Tech Stack](#tech-stack)
+- [Future Features](#future-features)
+- [Contributors](#contributors)
 
-## Available Scripts
+### Front-End Mod 3 Project by: [Ashton Huxtable](https://github.com/ashton-huxtable), [Lourdes Mendoza](https://github.com/mendozalourdes),  & [Em Orendorff](https://github.com/emorendorff)
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+When an art lover visits an art museum, they walk around the museum, and naturally find themselves gravitating towards art that fits their style or overall preferences which can include a preference towards certain color palettes. Painting by (hex) Numbers is an app that facilitates this! Users are be able to view only art that matches their preferred color palettes by allowing them to specify what color swatches they want to see, and they are then led to see art that matches those colors and favorite them into thier collection. This project was created in roughly one week to demonstrate our ability to learn a new technology to make a fully functioning application, in this case, Typescript and React with Hooks. The rubric for this project is found [here](https://frontend.turing.edu/projects/module-3/stretch.html). 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Check it out [here on heroku]() or see instructions for viewing locally below. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+# Instructions for Viewing Locally 
+  * Clone down this repo by copying the SSH key and from your terminal git clone <repo SSH key>
+  * `npm i` to install dependencies
+  * cd into the repo
+  * `npm start` to activate the server
+  * Open localhost:3000 in your browser to view the project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  
+# Architecture and Learning Goals 
+  * Self-teach Typescript and React Hooks to create a fully functioning app in roughly one week. 
+  * Demonstrate working knowledge of functional components with hooks, types and interfaces. 
+  * Build upon the foundational skills of React  
+  * Utilizes React Router for url navigation
+  * Retrieve and display artwork from the The Rijks Museum API endpoints
+  * Style and format color-picker dependency React Color 
+  * Testing performed with Cypress to better understand asych JS
+  
+# Walkthrough
+  
+- As a user, you may select from any of the given swatches on the left. Upon selection, artwork that has a matching hex code included in it will render to the page. Users can hover over each one for information including the title, artist and year created. You can pick a different color at anytime to render a different set of paintings with different hex codes. 
+  
+![home view](https://user-images.githubusercontent.com/77934658/127924815-0d7c3e39-6a1b-4fb3-985e-d1f2bca4caad.gif)
 
-### `npm run build`
+- Love a painting and don't want to lose it? Favorite it! Users may save as many pieces of art as they would like and then view them in "My Collection"   
+  
+![my collection](https://user-images.githubusercontent.com/77934658/127924865-b8163887-8538-4306-b4de-8c3b77f051e2.gif)
+   
+- Router error handling - Trying to go to a url that doesn't exist? Don't worry, we'll guide you back to where you're supposed to be. 
+  
+![routererror](https://user-images.githubusercontent.com/77934658/127925102-7017232a-1f0f-4550-8bbe-c69b556f8edf.gif)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  
+- Testing via Cypress - Extensive user flow testings with Cypress and stubs. 
+![cypress](https://media.giphy.com/media/P12IvgYIX06rvcu7oH/giphy.gif)
+  
+- Responsiveness - Viewable on mobile, tablet and desktop! 
+<img width="261" alt="Screen Shot 2021-08-02 at 4 22 00 PM" src="https://user-images.githubusercontent.com/77934658/127925509-c718fa3a-b9a7-4323-b30e-ff5ae3f03250.png">
+<img width="420" alt="Screen Shot 2021-08-02 at 4 21 50 PM" src="https://user-images.githubusercontent.com/77934658/127925524-cbb72d05-c441-4135-b600-62394d5f5b52.png">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  
+# Tech Stack
+<table>
+  <tr>
+    <td>React w/ Hooks</td>
+    <td>React Router</td>
+    <td>CSS</td>
+    <td>Cypress</td>
+    <td>Typescript</td>
+  </tr>
+  <tr>
+    <td><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/react.svg"/></td>
+    <td><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/react-router.svg"/></td>
+    <td><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/css-3.svg"/></td>
+    <td><img width="55" src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/cypress.svg"/></td>
+    <td><img width="55" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/64px-Typescript_logo_2020.svg.png"/></td>
+  </tr>
+</table>
+  
+# Future Features 
+ 
+  - User ability to delete artwork from their collection  
+  - Additional error handling and redirects 
+  - Additional filtering to allow users to select multiple swatches for artwork that has multiple matches 
+  - Additional museums APIs for even more artwork
+  - User login and Express or local storage so collections are saved
+  
+# Contributors
+ 
+ <table>
+  <tr>
+    <td><a href="https://github.com/emorendorff">Em Orendorff</td>
+    <td><a href="https://github.com/ashton-huxtable">Ashton Huxtable</td>
+    <td><a href="https://github.com/mendozalourdes">Lourdes Mendoza</td>
+  </tr>
+  <tr>
+    <td><img width="150" height="auto" src="https://avatars.githubusercontent.com/u/77934658?v=4" alt="Em Orendorff avatar"/></td>
+    <td><img width="150" height="auto" src="https://avatars.githubusercontent.com/u/78318468?v=4" alt="Ashton Huxtable avatar"/></td>
+    <td><img width="150" height="auto" src="https://avatars.githubusercontent.com/u/78240633?v=4" alt="Lourdes Mendoza avatar"/></td>
+  </tr>
+</table>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Project Managers:  
+  Kayla Wood https://github.com/kaylaewood  
+  Scott Ertmer https://github.com/sertmer
+  
+Turing School of Software & Design 
+  

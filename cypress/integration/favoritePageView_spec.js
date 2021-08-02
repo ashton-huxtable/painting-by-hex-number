@@ -96,4 +96,19 @@ describe("Favorites Page View", () => {
         "https://lh5.ggpht.com/JH0svNh0Pkov_W97MDHw8v2-qKS8AdixVJ-CiPL_xBECNdEyTBkicMvZBsqgW6GQ0TB9moKnfGUYacWQS32rqeoEjA4=s0"
       );
   });
+
+  it("Should be able to add to favorites only once even after clicking add button twice", () => {
+    cy.get('div[title*="#981313"]').click();
+    cy.get("#en-SK-A-128").should(
+      "have.attr",
+      "src",
+      "https://lh5.ggpht.com/JH0svNh0Pkov_W97MDHw8v2-qKS8AdixVJ-CiPL_xBECNdEyTBkicMvZBsqgW6GQ0TB9moKnfGUYacWQS32rqeoEjA4=s0"
+    );
+    cy.get("h3").contains("The Massacre of the Innocents");
+    cy.get("button").contains("Add to Favorites").click();
+    cy.get("button").contains("Add to Favorites").click();
+    cy.get("a").contains("My Favs").click();
+    cy.get("img").should("have.length", 1);
+  });
+
 });
